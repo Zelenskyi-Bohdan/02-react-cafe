@@ -10,10 +10,10 @@ export default function App() {
     const [votes, setVotes] = useState<Votes>({ good: 0, neutral: 0, bad: 0 });
 
     const handleVote = (type: VoteType) => {
-        setVotes({
-            ...votes,
-            [type]: votes[type] + 1
-        });
+        setVotes(prevVotes => ({
+            ...prevVotes,
+            [type]: prevVotes[type] + 1
+        }));
     }
 
     const resetVotes = () => {
